@@ -18,6 +18,7 @@
  a=$("#a").is(':checked');
  dashes=$("#dashes").is(':checked');
  length=$("#length").val();
+ includes=$("#include").val();
  $.ajax({
         url: 'generate.php',
         type:'POST',
@@ -28,7 +29,8 @@
  s: s,
  a: a,
  dashes: dashes,
- length: length
+ length: length,
+ includes: includes
 		},
         success: function(data)
         {
@@ -89,6 +91,8 @@ error: function()
   <span class="custom-control-description">Include Dashes</span>
 </label><br>
 	  
+	    <input type="text" class="form-control" id="include" name="include" required="required" placeholder="Include this Character" /><br>
+	    
     </div>
     
     <button type="button" onclick="generate()" class="btn btn-danger  btn-lg btn-block">Generate Password</button>
