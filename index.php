@@ -55,7 +55,7 @@
                     <div class="card-block">
                         <form>
                             <div class="form-group">
-                                <input type="number" class="form-control" id="length" required="required" placeholder="Enter Password Length" />
+                                <input type="text" class="form-control" id="length" required="required" placeholder="Enter Password Length" />
                                 <br>
                                 <label class="custom-control custom-checkbox">
                                     <input type="checkbox" id="l" checked="checked" class="custom-control-input">
