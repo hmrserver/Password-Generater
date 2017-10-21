@@ -23,6 +23,11 @@ if($info=='true'){
 }else{
 	$dashes=false;
 }
+	
+if($title=='includes'){
+    $includes=$info;    
+}
+	
 }
 
 }
@@ -30,9 +35,9 @@ if($sets==null){
 echo '<div class="alert alert-danger" role="alert"><strong>Generation Error:</strong> Please Define some Parameters </div>';
 
 } else{
-echo '<div class="alert alert-success" role="alert"><strong>New Password:</strong> '.generateStrongPassword($length,$dashes, $sets).'</div>';
+echo '<div class="alert alert-success" role="alert"><strong>New Password:</strong> '.generateStrongPassword($length,$dashes, $sets,$includes).'</div>';
 }
-function generateStrongPassword($length = 27, $add_dashes = false, $available_sets = 'luda')
+function generateStrongPassword($length = 27, $add_dashes = false, $available_sets = 'luda',$includes)
 {
 	$sets = array();
 	if(strpos($available_sets, 'l') !== false)
@@ -59,18 +64,19 @@ function generateStrongPassword($length = 27, $add_dashes = false, $available_se
 		$password .= $all[array_rand($all)];
 
 	$password = str_shuffle($password);
+    	$end = $password."".$includes;
 
 	if(!$add_dashes)
-		return $password;
+		return $end;
 
 	$dash_len = floor(sqrt($length));
 	$dash_str = '';
-	while(strlen($password) > $dash_len)
+	while(strlen($end) > $dash_len)
 	{
-		$dash_str .= substr($password, 0, $dash_len) . '-';
-		$password = substr($password, $dash_len);
+		$dash_str .= substr($end, 0, $dash_len) . '-';
+		$end = substr($end, $dash_len);
 	}
-	$dash_str .= $password;
+	$dash_str .= $end;
 	return $dash_str;
 }
 ?>
