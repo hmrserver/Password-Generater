@@ -1,5 +1,5 @@
-# Password-Generater
-Simple PHP &amp; AJAX Powered Password Generater
+# Password-Generator
+Simple PHP &amp; AJAX Powered Password Generator
 
 ##Preview
-![Password Generater](Preview.PNG?raw=true")
+![Password Generator](Preview.PNG?raw=true")
