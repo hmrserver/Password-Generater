@@ -59,8 +59,9 @@ function generateStrongPassword($length = 27, $add_dashes = false, $available_se
 		$password .= $all[array_rand($all)];
 
 	$password = str_shuffle($password);
-	$password = str_shuffle($password);
+	$password = substr(str_shuffle(str_repeat($password, $length)), 0, $length);
 	$password = sha1(md5($password));
+
 
 	if(!$add_dashes)
 		return $password;
